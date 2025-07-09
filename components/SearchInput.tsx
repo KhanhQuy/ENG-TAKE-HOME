@@ -1,4 +1,4 @@
-import { TextInput } from 'react-native';
+import { TextInput, StyleSheet } from 'react-native';
 
 interface SearchInputProps {
   value: string;
@@ -8,12 +8,28 @@ interface SearchInputProps {
 export default function SearchInput({ value, onChangeText }: SearchInputProps) {
   return (
     <TextInput
-      className="border border-blue-200 rounded-lg px-3 py-2 mb-4 w-64 text-base bg-white shadow"
+      style={[styles.input, { textAlign: 'center' }]}
       placeholder="Search for a movie..."
       placeholderTextColor="#888"
       value={value}
       onChangeText={onChangeText}
-      style={{ textAlign: 'center' }}
     />
   );
-} 
+}
+
+const styles = StyleSheet.create({
+  input: {
+    borderWidth: 1,
+    borderColor: '#bfdbfe', // blue-200
+    borderRadius: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    marginBottom: 16,
+    width: 256,
+    fontSize: 16,
+    backgroundColor: 'white',
+    shadowColor: '#000',
+    shadowOpacity: 0.08,
+    shadowRadius: 4,
+  },
+}); 
